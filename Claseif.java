@@ -1,5 +1,5 @@
 
-package lab29.pkg8;
+package lab28.pkg9;
 
 /**
  *
@@ -7,11 +7,12 @@ package lab29.pkg8;
  * 5090-18-81
  */
 public class Claseif {
-   public Claseif(){
+    public Claseif(){
        //Constructor de nuestra clase
    } 
    
-   Integer numero1=0, numero2=0;
+   Integer numero1=0, numero2=0, numero3=0;
+   Integer list[]={10,6,20,3,2};
    
    public void setIgual(int x, int y){
        this.numero1=x;
@@ -46,41 +47,57 @@ public class Claseif {
        }
    }
    
-  public void setMaxi(int x, int y){
-      this.numero1=x;
-      this.numero2=y;
+  public void setMaxiyMini(){
+      int min, max;
+      min=max=list[0];
       
+      for(int i=0; i<list.length; i++){
+          if(min>list[i]){
+              min=list[i];
+          }
+          if(max<list[i]){
+              max=list[i];
+          }
+      }
+      System.out.println("El número máximo es: "+max);
+      System.out.println("El número minimo es: "+min);
+  }
+  
+  public void setRaizCuadrada(int x){
+      this.numero1=x;
+      float raiz=(float) Math.sqrt(numero1);
+      
+      System.out.println("La raiz cuadrada de "+x+" es: "+raiz);
       
   }
   
-  public void setMini(int x, int y){
-      this.numero1=x;
-      this.numero2=y;
+  public void setFCuadratica(int a, int b, int c){
+      this.numero1=a;
+      this.numero2=b;
+      this.numero3=c;
       
+      double potencia, x1, x2;
       
-  }
-  
-  public void setRaizCuadrada(int x, int y){
-      this.numero1=x;
-      this.numero2=y;
+      potencia=Math.pow(b, 2)-(4*a*c);
       
+      x1=(-b-Math.sqrt(potencia)/2*a);
+      x2=(-b+Math.sqrt(potencia)/2*a);
       
-  }
-  
-  public void setFCuadratica(int x, int y){
-      this.numero1=x;
-      this.numero2=y;
-      
-      
+      System.out.println("El valor de x1 es: "+x1);
+      System.out.println("El valor de x2 es: "+x2);
   }
   
   public void setResta(int x, int y){
       this.numero1=x;
       this.numero2=y;
-      
-      int resta;
-      resta=numero1-numero2;
-      System.out.println("Su resultado es: "+resta);
+      int resta=0;
+       
+        if(numero1 < numero2) {
+            throw new ArithmeticException("Valores incorrectos - El numero 1 debe ser mayor que numero 2");
+        }else {
+            resta=numero1-numero2;
+            System.out.println("Resultado de la resta es: "+resta);
+        }
   }
   
   public void setMultiplicacion(int x, int y){
@@ -89,22 +106,32 @@ public class Claseif {
       
       int mult;
       mult=numero1*numero2;
-      System.out.println("Su resultado es: "+mult);
+      System.out.println("Resultado de la multiplicacion es: "+mult);
   }
   
   public void setDivision(int x, int y){
       this.numero1=x;
       this.numero2=y;
-      
-      int div;
-      div=numero1/numero2;
-      System.out.println("Su resultado es: "+div);
+      int div=0;
+       
+        if(numero1 < numero2) {
+            throw new ArithmeticException("Valores incorrectos - El numero 1 debe ser mayor que numero 2");
+        }else {
+            div=numero1-numero2;
+            System.out.println("Resultado de la division es: "+div);
+        }
   }
   
   public void setAND(int x, int y){
       this.numero1=x;
       this.numero2=y;
       
+        if(x == 4 && y == 2) {
+
+            System.out.println("TRUE");
+        }else{
+            System.out.println("FALSE"+" QUE TE VAYA BIEN");
+        }
       
   }
   
@@ -112,14 +139,25 @@ public class Claseif {
       this.numero1=x;
       this.numero2=y;
       
-      
+       if(x == 12 ||  y == 4) {
+
+            System.out.println("TRUE");
+        }else {
+            System.out.println("FALSE"+" NO EXISTE NINGUNA COINCIDENCIA");
+        }
   }
   
   public void setNOT(int x, int y){
       this.numero1=x;
       this.numero2=y;
       
-      
-  }
+      if(x != y){
+        System.out.println("EL NUMERO 1 ES DIFERENTE DEL NUMERO 2");
+     }else{
+        System.out.println("EL NUMERO 1 ES IGUAL QUE EL NUMERO 2");
+     }
+    
+ }
+    
   
 }
